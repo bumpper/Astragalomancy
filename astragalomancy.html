@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Astragalomancy - Ancient Dice Divination with Knuckle Bones</title>
+    
+    <!-- Enhanced Meta Tags -->
+    <meta name="Rating" content="general" />
+    <meta name="DESCRIPTION" content="Practice ancient astragalomancy divination by casting 5 sheep knuckle bones. Ask your question and receive divine guidance through this time-honored Greek fortune-telling method with 56 traditional interpretations." />
+    <meta name="KEYWORDS" content="astragalomancy, knuckle bone divination, ancient dice, sheep bones, Greek divination, bone casting, fortune telling, ancient oracle, divination bones, astragali" />
+    <meta name="author" content="Radius.Center" />
+    <meta name="distribution" content="Global" />
+    <meta name="robots" content="FOLLOW,INDEX" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://radius.center/astragalomancy/astragalomancy.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Astragalomancy - Ancient Knuckle Bone Divination">
+    <meta property="og:description" content="Cast 5 sheep knuckle bones for divine guidance using this ancient Greek divination method">
+    <meta property="og:url" content="https://radius.center/astragalomancy/astragalomancy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Radius.Center">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Astragalomancy - Ancient Bone Divination">
+    <meta name="twitter:description" content="Ancient Greek divination using sheep knuckle bones for spiritual guidance">
+    
+    <!-- Language and Hreflang -->
+    <meta name="language" content="en">
+    <link rel="alternate" hreflang="en" href="https://radius.center/astragalomancy/astragalomancy.html">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Astragalomancy Divination Tool",
+      "description": "Ancient Greek knuckle bone divination system for spiritual guidance and fortune telling",
+      "url": "https://radius.center/astragalomancy/astragalomancy.html",
+      "applicationCategory": "Entertainment",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Radius.Center",
+        "url": "https://radius.center"
+      },
+      "keywords": ["astragalomancy", "knuckle bone divination", "ancient Greek oracle", "bone casting"],
+      "genre": ["Divination", "Ancient Wisdom", "Fortune Telling"]
+    }
+    </script>
+    
+    <link rel="SHORTCUT ICON" href="favicon.ico" />
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .hidden-title {
+            display: none;
+        }
+        #questionForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px 20px 20px;
+            flex-shrink: 0;
+        }
+        #questionInput {
+            height: 30px;
+            font-size: 16px;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        #tossButton {
+            height: 40px;
+            font-size: 18px;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        #answerContainer {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #resetButton {
+            height: 30px;
+            font-size: 16px;
+            padding: 5px;
+        }
+        #result {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            min-height: 0;
+        }
+        .switch {
+            position: fixed;
+            top: 30px;
+            right: 80px;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+            
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 21px;
+            width: 21px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #5555ff;
+        }
+        input:checked + .slider:before {
+            transform: translateX(25px);
+        }
+        .help-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            height: 30px;
+            font-size: 16px;
+            padding: 5px 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        .help-btn:hover {
+            background-color: #e0e0e0;
+        }
+        .dark-mode .help-btn {
+            background-color: #444;
+            color: white;
+            border-color: #555;
+            border-top: 2px solid #666;
+            border-left: 2px solid #666;
+        }
+        .dark-mode .help-btn:hover {
+            background-color: #555;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+        .dark-mode input,
+        .dark-mode button {
+            background-color: #444;
+            color: white;
+            border-color: #555;
+        }
+        /*.dark-mode img {
+            filter: invert(1);
+        }*/
+    </style>
+</head>
+<body>
+    <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider"></span>
+    </label>
+    <a href="help.html" class="help-btn" title="Help Documentation" aria-label="Help Documentation">?</a>
+    <div class="hidden-title"><center><h1>Astragalomancy</h1></center></div>
+    <form id="questionForm">
+        <input type="text" id="questionInput" name="question" placeholder="Enter your question here..." autofocus>
+        <button type="submit" id="tossButton">Toss</button>
+        <div id="answer-container"></div>
+        <button type="button" id="resetButton">Reset</button>
+    </form>
+    <div id="result" class="result"></div>
+    <script>
+        const questionForm = document.getElementById('questionForm');
+        const questionInput = document.getElementById('questionInput');
+        const resultDiv = document.getElementById('result');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const resetButton = document.getElementById('resetButton');
+
+        questionForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const question = questionInput.value;
+            resultDiv.innerHTML = `
+                <p><i><font color="${darkModeToggle.checked ? '#aaa' : '#888'}">${question}?</font></i></p>
+                <p>${getRandomItem()}</p>
+            `;
+        });
+
+        function getRandomItem() {
+            const items = [
+				{ title: 'Olympian Zeus', image: '01-11111-Olympian-Zeus.png', value: '5', combination: '11111', description: 'All throws are ones, hear the voice of the Shining One. Zeus Savior will inspire you; He will give you happiness and all that you wish for. But sing the praises of Aphrodite and Hermes, son of Maia.' },
+				{ title: 'Athena Who Judges', image: '02-11113-Athena-Who-Judges.png', value: '7', combination: '11113', description: 'Four ones and a three command the following: By avoiding Enmity and Hatred, you will attain your reward. Reaching this journey&#65533;s end, you will be saved by Athena Bright eyes. Her judgment, which she imposes, will be for you welcome.' },
+				{ title: 'The Fates', image: '03-11114-The-Fates.png', value: '8', combination: '11114', description: 'A single four falls, and four ones: Do not act upon that which you now pursue, for it will not be good; He who tries will find the task both difficult and impossible. For now, you must travel abroad; the future, however, hides no evil.' },
+				{ title: 'The Eagle of Zeus', image: '04-33111-The-Eagle-of-Zeus.png', value: '9', combination: '33111', description: 'Two threes fall, and three ones: The high-flying Eagle will guide you to the right hand. Your fortune will be positive; with great Zeus&#65533;s aid, You will succeed in what you strive for with passion. Fear nothing.' },
+				{ title: 'The Great Spirit', image: '05-61111-The-Great-Spirit', value: '10', combination: '61111', description: 'One six and four ones come to you: The god who has blessed you will grant you the best of outcomes if you act upon that which you have in your mind. Demeter and Zeus will be your saviors.' },
+				{ title: 'Tyche, Opportune Chance', image: '06-11143-Tyche-Opportune-Chance.png', value: '10', combination: '11143', description: 'If there are three ones, one four, the fifth a three: Do not proceed with that which is imposed on you. Now, though you are in sadness, the gods will guide you; They will deliver you from suffering, and there will be no evil.' },
+				{ title: 'Nike, Goddess of Victory', image: '07-33311-Nike-Goddess-of-Victory.png', value: '11', combination: '33311', description: 'If three threes fall, and the remaining two are ones: You will accomplish what you desire, all is yours. If you honor the gods, you will triumph. The judgment they impose will be welcome to you.' },
+				{ title: 'Artemis of Bravrona', image: '08-11144-Artemis-of-Bravrona.png', value: '11', combination: '11144', description: 'You see three ones the rest are fours: Do not sow into the wind, nor plant seeds in hard stone. Do not sail on deep oceans during the storms of winter. Contemplate quietly and remain unaffected by all this.' },
+				{ title: 'Dionysus Bassareus', image: '09-11136-Dionysus-Bassareus.png', value: '12', combination: '11136', description: 'One lone six, one three, and three ones fall: Be in no hurry to harvest the buds of the vine, nor the summer figs, nor should you prepare your weights for the line, for you will lie heavy in the waves. Your obligation lies elsewhere, and it eludes you.' },
+				{ title: 'Zeus the King', image: '10-11334-Zeus-the-King.png', value: '12', combination: '11334', description: 'Two ones fall, two threes, and a four: Proceed. You will achieve your goals beyond your wildest dreams. And those things that seem fearful, the god decrees will bring you joy. Honor the great king, Zeus, and Lord Apollo Light-bearer.' },
+				{ title: 'Hermes of the Games', image: '11-11164-Hermes-of-the-Games.png', value: '13', combination: '11164', description: 'One six, three ones, the fifth is a four: Stranger, your business in foreign lands will go well. Do not seek for opportunity; the god will arrange for your happiness. For it is not difficult for this situation to bring you gains.' },
+				{ title: 'The Melodious Muse', image: '12-11344-The-Melodious-Muse.png', value: '13', combination: '11344', description: 'If one three falls, two ones, and two fours: You would do well to act. Good prospects, profits easily gained. It is better now to participate, rather than to try to create. Keep private, in order to succeed, the sweet verse of the Muse.' },
+				{ title: 'Themis', image: '13-33331-Themis.png', value: '13', combination: '33331', description: 'A single one falls, and four threes: This road has no gains for you and is impassable. Be in no hurry at present. The god will not allow that which you pursue; you must wait. It is distressing to enter into conflict and legal trials.' },
+				{ title: 'Triton', image: '14-13334-Triton.png', value: '14', combination: '13334', description: 'A single one and three threes, the fifth a four: Your attempts are in vain; you struggle against the waves. You seek a fish in the ocean; be in no hurry to act. Nor is it useful for you to make demands of the gods at the wrong time.' },
+				{ title: 'Hermes the Guide', image: '15-61133-Hermes-the-Guide.png', value: '14', combination: '61133', description: 'One six, two ones, and two threes: Do not reflect upon evil, nor go against the god, planning calamities, for there is nothing useful in this. Neither on the path you are taking, will you uncover gain in the end.' },
+				{ title: 'The Benevolent Spirit', image: '16-44411-The-Benevolent-Spirit.png', value: '14', combination: '44411', description: 'Should three fours fall and two ones: The god will lead you down the path he imposes. Smiling Aphrodite will guide you with benevolence; Your path will be productive, and no clouds hang over your fate.' },
+				{ title: 'Zeus the Savior', image: '17-13344-Zeus-the-Savior.png', value: '15', combination: '13344', description: 'A single one, two threes fall, and two fours: For such deeds as must transpire, with courage, take action. Proceed, for the gods send good tidings on this matter. Spare no efforts; there is nothing evil ahead for you.' },
+				{ title: 'Zeus Ammon', image: '18-11166-Zeus-Ammon.png', value: '15', combination: '11166', description: 'If three ones fall and two sixes: On that path which inspires you, walk boldly ahead. The god will grant you everything; proceed as your inspiration commands. Zeus, who thunders in the heights, will be your savior.' },
+				{ title: 'Benevolent Fortune', image: '19-33333-Benevolent-Fortune.png', value: '15', combination: '33333', description: 'Should all throws be threes, then hear the voice of the Shining One. She who has borne a child, found both her breasts dry. But lo, she has flowered once again and has milk aplenty; And all will be well for you, concerning that which you ask of me.' },
+				{ title: 'Zeus the Guardian of Travelers', image: '20-43611-Zeus-the-Guardian-of-Travelers.png', value: '15', combination: '43611', description: 'One four, one three, one six, and two ones: Concerning that which you strive for, be patient, it is not yet time. And should the gods present you with sadness, they will redeem you willingly. He who is in foreign lands will complete his journey, says the god.' },
+				{ title: 'Hercules', image: '21-63331-Hercules.png', value: '16', combination: '63331', description: 'One six, three threes, the fifth a one: It is not yet time, be in no hurry; do not act foolishly. Be not like the lioness that bore a den of blind cubs.  Prepare yourself calmly, and the god will guide you.' },
+				{ title: 'Cybele', image: '22-64411-Cybele.png', value: '16', combination: '64411', description: 'One six, two fours, and two ones: From dry branches one cannot harvest fruit. Neglect your own self, and life becomes unlivable. Neither is it possible to reap bountiful fruit, when you have not sown.' },
+				{ title: 'Prometheus', image: '23-13444-Prometheus.png', value: '16', combination: '13444', description: 'A single one, one three, the rest are fours: The circumstances promise great reward. If you act wisely on what the divination tells you, stranger, you will succeed; From the gods, you have just approval for that which you seek.' },
+				{ title: 'The Fertile Earth', image: '24-33334-The-Fertile-Earth.png', value: '16', combination: '33334', description: 'Should a single four fall and all the rest threes, then you will succeed in all things, and command capably. Along with luck, you will have the aid of Apollo. The Earth will bear you perfect fruit for your labors.' },
+				{ title: 'Nereus', image: '25-33344-Nereus.png', value: '17', combination: '33344', description: 'The threes are three, the fours are two: It is difficult to fight against the waves. Stay, friend; Hard labor is necessary. Changes will be good. Avoid extreme turmoil, for you may suffer evil.' },
+				{ title: 'Artemis of the Fields', image: '26-13346-Artemis-of-the-Fields.png', value: '17', combination: '13346', description: 'One six, a single one, one four, the rest are threes: When a rabbit happens by, then all will go well. Cease your suffering, for happiness awaits you. By honoring the gods, you will nourish your consciousness.' },
+				{ title: 'Fruit-bearing Demeter', image: '27-11366-Fruit-bearing-Demeter.png', value: '17', combination: '11366', description: 'If two sixes fall, two ones, the fifth a three: Gather an unripe fruit, and it is not useful. After many contests, the laurels will be yours. But strive with deliberation; do not act in haste and violence.' },
+				{ title: 'Zephyrus', image: '28-14444-Zephyrus.png', value: '17', combination: '14444', description: 'If a single one falls, and the rest are fours: The god will now complete everything for you and guide you favorably. Act upon all things according to your plans. Torment yourself no longer; You will craft all that you desire with perfection.' },
+				{ title: 'Adrasteia, She Who None Can Escape', image: '29-66411-Adrasteia-She-Who-None-Can-Escape.png', value: '18', combination: '66411', description: 'If two sixes fall, two ones, the fifth a four: That upon which you act will be positive. Good fortune will be yours from the beginning, and all danger will be swept aside. All other divinations will be positive for you.' },
+				{ title: 'Zeus the Thunderer', image: '30-16443-Zeus-the-Thunderer.png', value: '18', combination: '16443', description: 'A single one, one six, two fours, the fifth a three: It is not possible to fulfill your desires, the god judges; Nor will it benefit you to journey far from your home. Nor through payment will you find anything beneficial.' },
+				{ title: 'The Supplicant Deity', image: '31-44433-The-Supplicant-Deity.png', value: '18', combination: '44433', description: 'Three fours, and two threes fall: I see no safe path for you. Be patient. Events will favor you after this, but for the present do nothing. Have faith in the gods and remain hopeful.' },
+				{ title: 'Benevolent Time', image: '32-63333-Benevolent-Time.png', value: '18', combination: '63333', description: 'One six, four threes, the following command: Be in no hurry to move forth; the god disagrees, be patient. Be not like the lioness that bore a den of blind cubs. Prepare yourself calmly, and all will be happily completed in your favor.' },
+				{ title: 'Good Hope', image: '33-66133-Good-Hope.png', value: '19', combination: '66133', description: 'Two sixes and two threes, a single one, so command: Easily traveled and secure will be your path, concerning that which you ask. Fear nothing; the god will guide you in all things. He will end the burden of sadness and dissipate suspicion.' },
+				{ title: 'Zeus the Creator', image: '34-44461-Zeus-the-Creator.png', value: '19', combination: '44461', description: 'Three fours, one six, the fifth a one: Endeavor with courage, for the divination brings you hope; The god declares that he who is ailing will be saved. And if events impose on you a duty, fulfill it, for you will be rewarded.' },
+				{ title: 'Hermes, Who Presides Over Gain', image: '35-34444-Hermes-Who-Presides-Over-Gain.png', value: '19', combination: '34444', description: 'Should a single three fall, and all the rest fours: Hermes will grant you the appropriate inspiration; he will confer on you a boon. You will have it all; you will achieve what you desire. You will discover that which he foretells, and there will be no evil.' },
+				{ title: 'Victory Triumphant', image: '36-63334-Victory-Trimumphant.png', value: '19', combination: '63334', description: 'One six and three threes, the fifth a four: I foresee good things, stranger, in this consultation. And he who walks in foreign lands will end his journey well. With the help of great Zeus, you will soon achieve what you strive for.' },
+				{ title: 'The Victorious Sun', image: '37-66611-The-Victorious-Sun.png', value: '20', combination: '66611', description: 'If three sixes fall, the rest are ones, A bright sun watches over you, who sees all things. For the problems you now face, you will find a solution. A gift that brings victory will complete this foretelling.' },
+				{ title: 'The Heavenly Fates', image: '38-44444-The-Heavenly-Fates.png', value: '20', combination: '44444', description: 'If all the tosses are fours, take no action now; There is no reward along this path. For I see guile in you regarding that which you ask of me; Nor should you, a mortal man, pressure the god into giving you his blessing.' },
+				{ title: 'Nemesis', image: '39-43661-Nemesis.png', value: '20', combination: '43661', description: 'A four, a three, two sixes, the fifth a one: Concerning that which you intend, make haste; all will be yours afterward. Those things that until now brought you sorrow, will be directed to your advantage, says the god. Be at peace; there is no evil ahead for you.' },
+				{ title: 'Zeus, The Guardian of the Dead', image: '40-63344-Zeus-The-Guardian-of-the-Dead.png', value: '20', combination: '63344', description: 'A single six, two threes, and two fours fall: It is not possible to achieve in haste that which your fortune commands. You will find benefit; the god will relieve you of your burden. The task will be easy but protect yourself from evil.' },
+				{ title: 'Demeter', image: '41-66441-Demeter.png', value: '21', combination: '66441', description: 'Two sixes, two fours, the fifth a one: Your road will be easy, and all things secure, concerning that which you ask. Fear nothing; the goddess will guide you in all things. She will drive away the burden of sorrow and dissipate suspicion.' },
+				{ title: 'The Shining Sun', image: '42-44463-The-Shining-Sun.png', value: '21', combination: '44463', description: 'Three fours, one six, the fifth a three: You will achieve what you desire and will uncover that which troubles you. Endeavor, stranger, with courage, for all is in readiness. You will uncover the hidden; your day of deliverance is at hand.' },
+				{ title: 'Good Fortune, Who Delivers Us from Pain', image: '43-33366-Good-Fortune-Who-Delivers-Us-from-Pain.png', value: '21', combination: '33366', description: 'If three threes fall, and two sixes, this they command: There are good deeds; make haste to perform them. You will be delivered from heavy sorrow and triumph over all. And he who wanders in foreign lands will return home, the god declares.' },
+				{ title: 'The Renowned Fates', image: '44-16663-The-Renowned-Fates.png', value: '22', combination: '16663', description: 'A single one, three sixes, the fifth a three: Put not your hand into the mouths of wolves, for you may suffer harm. What you ask of me is difficult and uncertain. Even so, you will end this road of unproductive wandering in peace.' },
+				{ title: 'Poseidon', image: '45-64444-Poseidon.png', value: '22', combination: '64444', description: 'A single six falls, the rest are fours: Sow not into the sea, nor try to write on the crests of waves; Both are a waste of effort, and an impossible task. Nor should you, mortal man, make demands of the god, who may bring you grief.' },
+				{ title: 'Raging Ares', image: '46-66433-Raging-Ares.png', value: '22', combination: '66433', description: 'Should two sixes fall, one four, and two threes: Do not advance toward your goals, stranger. This I prophesy: Into the battle has come a powerful lion; guard yourself, for it is terrible. It is not possible to achieve that which you seek; do nothing.' },
+				{ title: 'Athena', image: '47-16664-Athena.png', value: '23', combination: '16664', description: 'A single one, three sixes, the fifth a four: Honor Pallas Athena and all will be yours; All that you desire, and all that you have planned for, will come to you. She will free you from bondage and relieve the ailing from pain.' },
+				{ title: 'Euphrosyne', image: '48-66443-Euphrosyne.png', value: '23', combination: '66443', description: 'Should two sixes fall, two fours, the fifth a three: Sally forth, follow your instincts, and quickly, for you will return home. Discover what inspires you and act upon it, for you will conquer all. All about you is happiness, and you have nothing to fear.' },
+				{ title: 'Pythian Apollo', image: '49-66633-Pythian-Apollo.png', value: '24', combination: '66633', description: 'Three sixes, and two threes, hear the following: Stay, do not act, obey the words of the Radiant One. In the future, lie in wait for your chance, but do nothing now. There are obstacles ahead, but you will complete that which concerns you.' },
+				{ title: 'Cronus, Who Devours His Children', image: '50-44466-Cronus-Who-Devours-His-Children.png', value: '24', combination: '44466', description: 'Three fours, two sixes, this the god commands: Remain in your home with serenity; go nowhere else, lest a fearful and vengeful beast spring out of the earth and come against you. This action appears neither safe nor secure to me.' },
+				{ title: 'The Shining Month', image: '51-46663-The-Shining-Month.png', value: '25', combination: '46663', description: 'One four falls, three sixes, the fifth a three: With courage, you will have the opportunity to achieve your desire. You will succeed by dashing to your goal. Your efforts will be rewarded. You are bound, however, to strive for the greater good, in a just struggle.' },
+				{ title: 'The Mother of the Gods', image: '52-66661-The-Mother-of-the-gods.png', value: '25', combination: '66661', description: 'Four sixes, the fifth a one, so command: As wolf&#65533;s snatch sheep, and powerful lions seize horned oxen, so will you conquer over all. All that you ask of me will be yours, with the aid of Hermes, son of Zeus.' },
+				{ title: 'Zeus of the Underworld', image: '53-66644-Zeus-of-the-Underworld.png', value: '26', combination: '66644', description: 'Three sixes, two fours, so do I prophesy: This act will find barriers ahead; be in no hurry, have patience. For this road bears sadness; it is both inapproachable and difficult to traverse. It will be difficult to buy, and should you sell, it will be at a loss.' },
+				{ title: 'Celestial Aphrodite', image: '54-66663-Celestial-Aphrodite.png', value: '27', combination: '66663', description: 'Four sixes and one three command the following: The daughter of Heaven, Aphrodite, Queen of Love, will send you good tidings. She will prepare a path of escape for you from the pain and anxiety crushing your heart.' },
+				{ title: 'Damage', image: '55-66664-Damage.png', value: '28', combination: '66664', description: 'Four sixes and one four command the following: You will have no luck. Why fight a futile battle? Stay, for you may be injured in your haste. It is neither wise to rush toward your goal, nor to wander like a fool.' },
+				{ title: 'Hermes of the Square', image: '56-66666-Hermes-of-the-Square.png', value: '30', combination: '66666', description: 'If all throws be sixes: Travel not toward your goal; better to stay in place. For I see guile in you regarding that which you ask of me. Nevertheless, you will end your futile journey in peace.' },
+            ];
+
+            const randomIndex = Math.floor(Math.random() * items.length);
+            const randomItem = items[randomIndex];
+            return `
+                <h3>${randomItem.title}</h3>
+                <img src="${randomItem.image}" alt="${randomItem.title}" class="result-image">
+                <p>Total Value: ${randomItem.value}</p>
+                <p>Combination: ${randomItem.combination}</p>
+                <p><i>${randomItem.description}</i></p>
+            `;
+        }
+
+        darkModeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+            updateImageInversion();
+        });
+        
+        // Apply saved dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+            updateImageInversion();
+        }
+
+        function updateImageInversion() {
+            const resultImage = document.querySelector('.result-image');
+            if (resultImage) {
+                resultImage.style.filter = darkModeToggle.checked ? 'invert(1)' : 'none';
+            }
+        }
+
+        resetButton.addEventListener('click', () => {
+            questionInput.value = '';
+            resultDiv.innerHTML = '';
+            document.getElementById('answer-container').innerHTML = '';
+        });
+    </script>
+</body>
+</html>
